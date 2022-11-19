@@ -2,6 +2,7 @@
 
 session_start();
 
+//checking if user is logged, if session is still alive, then php is relocating user to gra.php
 if ((isset($_SESSION['logged'])) && $_SESSION['logged']) {
     header('Location: gra.php');
     exit();
@@ -17,6 +18,11 @@ if ((isset($_SESSION['logged'])) && $_SESSION['logged']) {
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Smiley</title>
+
+    <p style="text-align: right">
+        <a href="registration.php">Register NOW!</a>
+    </p>
+
     <style>
 
         h1 {
