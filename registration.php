@@ -92,7 +92,7 @@ if (isset($_POST['email'])) {
 
             if ($everythingIsFine) {
                 if ($connect -> query("INSERT INTO uzytkownicy VALUES(NULL,'$nick','$password_hash','$email',
-                                                                                                100,100,100,14)")){
+                                             100,100,100,now() + INTERVAL 14 DAY)")){
                     $_SESSION['register_success'] = true;
                     header('Location: welcome.php');
                 } else {

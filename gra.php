@@ -23,7 +23,21 @@
     echo "<p><b>Kamień:</b>".$_SESSION['kamien'];
     echo "<p><b>Zboże:</b>".$_SESSION['zboze']."<br><br>";
     echo "<p><b>Email:</b>".$_SESSION['email']."<br>";
-    echo "<p><b>Dni premium:</b>".$_SESSION['dnipremium'];
+    echo "<p><b>Pozostałe dni premium:</b>".$_SESSION['dnipremium']."<br>";
+
+    $datetime = new DateTime('2023-01-06 22:30:15');
+    echo "Sever time and date: ".$datetime -> format('Y-m-d H:i:s')."<br>";
+
+    $end = DateTime::createFromFormat('Y-m-d H:i:s', $_SESSION['dnipremium']);
+    $diff = $datetime -> diff($end);
+
+    if ($datetime < $end) {
+        echo "Premium left: ".$diff -> format('%m mies, %d dni, %h g, %i min, %s sec');
+    } else {
+        echo "Premium inactive since: ".$diff -> format('%m mies, %d dni, %h g, %i min, %s sec');
+    }
+
+
 
 ?>
 </body>
